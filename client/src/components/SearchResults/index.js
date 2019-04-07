@@ -31,8 +31,10 @@ export function SearchResults(props) {
           <Row>
             <Col size="xs-4 sm-2">
 
-
-              <Thumbnail src={result.volumeInfo.imageLinks.thumbnail} />
+              {result.volumeInfo.imageLinks ?
+                (<Thumbnail src={result.volumeInfo.imageLinks.thumbnail} />) :
+                (<Thumbnail src='images/th.jpg'/>)
+              }
             </Col>
             <Col size="xs-8 sm-9">
 

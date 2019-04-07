@@ -23,7 +23,7 @@ class Search extends Component {
       title: thisBook.volumeInfo.title,
       authors: thisBook.volumeInfo.authors,
       description: thisBook.volumeInfo.description,
-      image: thisBook.volumeInfo.imageLinks.smallThumbnail,
+      image: thisBook.volumeInfo.imageLinks ? thisBook.volumeInfo.imageLinks.smallThumbnail : null,
       link: thisBook.volumeInfo.canonicalVolumeLink
 
     };
@@ -52,6 +52,7 @@ class Search extends Component {
     event.preventDefault();
     API.searchBooks(this.state.search)
       .then(res => {
+        
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }

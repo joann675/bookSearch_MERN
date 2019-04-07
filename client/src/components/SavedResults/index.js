@@ -19,11 +19,11 @@ export function SavedResults(props) {
               <h4>Written By {result.authors}</h4>
             </Col>
             <Col size="xs-4 sm-2">
-            <a className="btn btn-info mr-1 mt-2" href={result.link} target="_blank"
-                 rel="noopener noreferrer">View</a>
-              <button className="btn btn-info mr-1 mt-2"
+              <a className="btn btn-info mr-1" href={result.link} target="_blank">View</a>
+
+              <button className="btn btn-info mr-1"
                 onClick={props.button2Action}
-                id={result._id }>{props.button2Text}</button>
+                id={result._id}>{props.button2Text}</button>
 
 
             </Col>
@@ -32,8 +32,11 @@ export function SavedResults(props) {
           <Row>
             <Col size="xs-4 sm-2">
 
-
-              <Thumbnail src={result.image} />
+              {result.image ?
+                (<Thumbnail src={result.image} />) :
+                (<Thumbnail src='images/th.jpg' />)
+              }
+             
             </Col>
             <Col size="xs-8 sm-9">
 
